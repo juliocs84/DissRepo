@@ -1,0 +1,74 @@
+{
+  "name": "Alertas TinyML - Crítico e Falha",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "alerta-tinyml",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Receber alerta",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "alerta-tinyml"
+    },
+    {
+      "parameters": {
+        "fromEmail": "SEU_EMAIL@gmail.com",
+        "toEmail": "DESTINATARIO@exemplo.com",
+        "subject": "=[TinyML] {{ $json.body.classe }} detectado (alerta #{{ $json.body.alerta_id }}){{ $json.body.simulado ? ' - SIMULADO' : '' }}",
+        "emailFormat": "text",
+        "text": "=Monitoramento multimodal do data center\n\nClasse: {{ $json.body.classe }} (anterior: {{ $json.body.classe_anterior }})\nDetectado em: {{ $json.body.detectado_em }}\nTemperatura: {{ $json.body.temp }} °C\nUmidade: {{ $json.body.umid }} %\nPressão: {{ $json.body.press }} hPa\nAnomalia acústica (média de 10 s): {{ $json.body.p_anom }}\nAlerta nº {{ $json.body.alerta_id }}{{ $json.body.simulado ? ' (simulado)' : '' }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Enviar e-mail",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [240, 0],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "chatId": "SEU_CHAT_ID",
+        "text": "={{ $('Receber alerta').item.json.body.classe === 'Falha' ? '🔴' : '🟠' }} TinyML: {{ $('Receber alerta').item.json.body.classe }}{{ $('Receber alerta').item.json.body.simulado ? ' (simulado)' : '' }}\nTemp. {{ $('Receber alerta').item.json.body.temp }} °C | Umid. {{ $('Receber alerta').item.json.body.umid }} % | Anomalia acústica {{ $('Receber alerta').item.json.body.p_anom }}\n{{ $('Receber alerta').item.json.body.detectado_em }} | alerta nº {{ $('Receber alerta').item.json.body.alerta_id }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Enviar Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [480, 0],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ alerta_id: $('Receber alerta').item.json.body.alerta_id, email: $('Enviar e-mail').item.json.error ? 'falha' : 'ok', telegram: $('Enviar Telegram').item.json.error ? 'falha' : 'ok', execucao: $execution.id }) }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Confirmar ao receptor",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 0]
+    }
+  ],
+  "connections": {
+    "Receber alerta": { "main": [[{ "node": "Enviar e-mail", "type": "main", "index": 0 }]] },
+    "Enviar e-mail": { "main": [[{ "node": "Enviar Telegram", "type": "main", "index": 0 }]] },
+    "Enviar Telegram": { "main": [[{ "node": "Confirmar ao receptor", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "saveManualExecutions": true
+  },
+  "pinData": {}
+}
