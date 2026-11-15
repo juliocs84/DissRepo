@@ -1,0 +1,132 @@
+>> Envie Enter (campo de mensagem do Monitor Serial) para iniciar o teste
+>> Envie Enter (campo de mensagem do Monitor Serial) para iniciar o teste
+>> Envie Enter (campo de mensagem do Monitor Serial) para iniciar o teste
+>> Envie Enter (campo de mensagem do Monitor Serial) para iniciar o teste
+------------------------------------------------------------
+Teste de inferencia - Nano 33 BLE Sense
+FFT: FFT propria (radix-2)
+TFLM: Harvard_TinyMLx
+LSTM: em C (lstm_c.h)
+Cache de instrucoes: ligado
+------------------------------------------------------------
+1. Paridade do espectrograma (placa x Python)
+  janela 0: log-mel erro max 0.0000010 | medio 0.00000013 | entrada int8 diferente em 0/3920 (max 0)
+  janela 1: log-mel erro max 0.0000029 | medio 0.00000023 | entrada int8 diferente em 0/3920 (max 0)
+  -> PARIDADE OK
+------------------------------------------------------------
+2. CNN int8 (placa x TFLite no Python)
+  janela 0: saida placa [32,-52,-107,-128] | Python [32,-52,-107,-128]
+           cadeia completa na placa: p(nivel 0..3) = 0.625 0.297 0.082 0.000
+  janela 1: saida placa [89,-112,-105,-128] | Python [89,-112,-105,-128]
+           cadeia completa na placa: p(nivel 0..3) = 0.848 0.062 0.090 0.000
+  -> CNN OK
+------------------------------------------------------------
+2b. Fusao por camada densa (placa x Python)
+  caso 0: classe placa 0 | Python 0 | prob. erro max 0.0000000
+  caso 1: classe placa 1 | Python 1 | prob. erro max 0.0000000
+  caso 2: classe placa 3 | Python 3 | prob. erro max 0.0000000
+  caso 3: classe placa 2 | Python 2 | prob. erro max 0.0000000
+  caso 4: classe placa 3 | Python 3 | prob. erro max 0.0000000
+  caso 5: classe placa 2 | Python 2 | prob. erro max 0.0000000
+  caso 6: classe placa 3 | Python 3 | prob. erro max 0.0000000
+  caso 7: classe placa 3 | Python 3 | prob. erro max 0.0000000
+  -> FUSAO OK
+------------------------------------------------------------
+3. LSTM float32 em C (placa x Python)
+  janela 0 (classe real 0, predita 0): atributos erro max 0.0000122 | probabilidades erro max 0.0000000
+  janela 1 (classe real 1, predita 1): atributos erro max 0.0000000 | probabilidades erro max 0.0000000
+  janela 2 (classe real 2, predita 2): atributos erro max 0.0000061 | probabilidades erro max 0.0000011
+  janela 3 (classe real 3, predita 3): atributos erro max 0.0000122 | probabilidades erro max 0.0000000
+  -> LSTM OK
+------------------------------------------------------------
+4. Memoria
+  Arena CNN usada:  13.4 KB (reservada 24 KB)
+  Arena LSTM usada: 0.0 KB (reservada 12 KB)
+  Arena total usada: 13.4 KB
+------------------------------------------------------------
+5. Latencia (1000 execucoes; aguarde ~5 min)
+  100 execucoes
+  200 execucoes
+  300 execucoes
+  400 execucoes
+  500 execucoes
+  600 execucoes
+  700 execucoes
+  800 execucoes
+  900 execucoes
+  1000 execucoes
+------------------------------------------------------------
+RESUMO COMPLETO
+FFT: FFT propria (radix-2) | TFLM: Harvard_TinyMLx | cache: ligado
+Validacao (placa x Python):
+  espectrograma janela 0: erro max 0.0000010, medio 0.00000013 | int8 diferentes 0/3920 (max 0)
+  espectrograma janela 1: erro max 0.0000029, medio 0.00000023 | int8 diferentes 0/3920 (max 0)
+  CNN janela 0: placa [32,-52,-107,-128] Python [32,-52,-107,-128] | cadeia completa p(nivel 0..3) 0.625 0.297 0.082 0.000
+  CNN janela 1: placa [89,-112,-105,-128] Python [89,-112,-105,-128] | cadeia completa p(nivel 0..3) 0.848 0.062 0.090 0.000
+  LSTM janela 0 (real 0, predita 0): atributos erro 0.0000122 | prob. erro 0.0000000
+  LSTM janela 1 (real 1, predita 1): atributos erro 0.0000000 | prob. erro 0.0000000
+  LSTM janela 2 (real 2, predita 2): atributos erro 0.0000061 | prob. erro 0.0000011
+  LSTM janela 3 (real 3, predita 3): atributos erro 0.0000122 | prob. erro 0.0000000
+  -> espectrograma OK | CNN OK | LSTM OK | fusao OK (8/8 classes iguais; erro max 0.0000000)
+Arena usada: CNN 13.4 KB | LSTM 0.0 KB | total 13.4 KB
+Latencia (1000 execucoes; media +- desvio; maximo) em ms:
+  Espectrograma mel, 1 quadro (10 ms): 2.18 +- 0.02; max 2.33
+  Espectrograma mel, janela de 1 s (98 quadros): 214.75 +- 0.48; max 215.59
+  Inferencia CNN 2D (4 niveis): 91.15 +- 0.10; max 91.41
+  Inferencia LSTM + fusao densa: 98.57 +- 0.11; max 98.85
+  Decisao, pior caso (ultimo quadro + CNN + LSTM + fusao densa): 191.90 +- 0.14; max 192.16
+  Janela inteira sequencial (98 quadros + CNN + LSTM): 404.46 +- 0.48; max 405.26
+  Decisao (pior caso) < 200 ms (RNF2): ATENDE
+  Ocupacao do processador em regime (98 quadros + CNN por segundo + LSTM a cada 10 s): 31.6 %
+Flash e RAM totais: ver a mensagem de compilacao do firmware principal.
+------------------------------------------------------------
+------------------------------------------------------------
+RESUMO COMPLETO
+FFT: FFT propria (radix-2) | TFLM: Harvard_TinyMLx | cache: ligado
+Validacao (placa x Python):
+  espectrograma janela 0: erro max 0.0000010, medio 0.00000013 | int8 diferentes 0/3920 (max 0)
+  espectrograma janela 1: erro max 0.0000029, medio 0.00000023 | int8 diferentes 0/3920 (max 0)
+  CNN janela 0: placa [32,-52,-107,-128] Python [32,-52,-107,-128] | cadeia completa p(nivel 0..3) 0.625 0.297 0.082 0.000
+  CNN janela 1: placa [89,-112,-105,-128] Python [89,-112,-105,-128] | cadeia completa p(nivel 0..3) 0.848 0.062 0.090 0.000
+  LSTM janela 0 (real 0, predita 0): atributos erro 0.0000122 | prob. erro 0.0000000
+  LSTM janela 1 (real 1, predita 1): atributos erro 0.0000000 | prob. erro 0.0000000
+  LSTM janela 2 (real 2, predita 2): atributos erro 0.0000061 | prob. erro 0.0000011
+  LSTM janela 3 (real 3, predita 3): atributos erro 0.0000122 | prob. erro 0.0000000
+  -> espectrograma OK | CNN OK | LSTM OK | fusao OK (8/8 classes iguais; erro max 0.0000000)
+Arena usada: CNN 13.4 KB | LSTM 0.0 KB | total 13.4 KB
+Latencia (1000 execucoes; media +- desvio; maximo) em ms:
+  Espectrograma mel, 1 quadro (10 ms): 2.18 +- 0.02; max 2.33
+  Espectrograma mel, janela de 1 s (98 quadros): 214.75 +- 0.48; max 215.59
+  Inferencia CNN 2D (4 niveis): 91.15 +- 0.10; max 91.41
+  Inferencia LSTM + fusao densa: 98.57 +- 0.11; max 98.85
+  Decisao, pior caso (ultimo quadro + CNN + LSTM + fusao densa): 191.90 +- 0.14; max 192.16
+  Janela inteira sequencial (98 quadros + CNN + LSTM): 404.46 +- 0.48; max 405.26
+  Decisao (pior caso) < 200 ms (RNF2): ATENDE
+  Ocupacao do processador em regime (98 quadros + CNN por segundo + LSTM a cada 10 s): 31.6 %
+Flash e RAM totais: ver a mensagem de compilacao do firmware principal.
+------------------------------------------------------------
+------------------------------------------------------------
+RESUMO COMPLETO
+FFT: FFT propria (radix-2) | TFLM: Harvard_TinyMLx | cache: ligado
+Validacao (placa x Python):
+  espectrograma janela 0: erro max 0.0000010, medio 0.00000013 | int8 diferentes 0/3920 (max 0)
+  espectrograma janela 1: erro max 0.0000029, medio 0.00000023 | int8 diferentes 0/3920 (max 0)
+  CNN janela 0: placa [32,-52,-107,-128] Python [32,-52,-107,-128] | cadeia completa p(nivel 0..3) 0.625 0.297 0.082 0.000
+  CNN janela 1: placa [89,-112,-105,-128] Python [89,-112,-105,-128] | cadeia completa p(nivel 0..3) 0.848 0.062 0.090 0.000
+  LSTM janela 0 (real 0, predita 0): atributos erro 0.0000122 | prob. erro 0.0000000
+  LSTM janela 1 (real 1, predita 1): atributos erro 0.0000000 | prob. erro 0.0000000
+  LSTM janela 2 (real 2, predita 2): atributos erro 0.0000061 | prob. erro 0.0000011
+  LSTM janela 3 (real 3, predita 3): atributos erro 0.0000122 | prob. erro 0.0000000
+  -> espectrograma OK | CNN OK | LSTM OK | fusao OK (8/8 classes iguais; erro max 0.0000000)
+Arena usada: CNN 13.4 KB | LSTM 0.0 KB | total 13.4 KB
+Latencia (1000 execucoes; media +- desvio; maximo) em ms:
+  Espectrograma mel, 1 quadro (10 ms): 2.18 +- 0.02; max 2.33
+  Espectrograma mel, janela de 1 s (98 quadros): 214.75 +- 0.48; max 215.59
+  Inferencia CNN 2D (4 niveis): 91.15 +- 0.10; max 91.41
+  Inferencia LSTM + fusao densa: 98.57 +- 0.11; max 98.85
+  Decisao, pior caso (ultimo quadro + CNN + LSTM + fusao densa): 191.90 +- 0.14; max 192.16
+  Janela inteira sequencial (98 quadros + CNN + LSTM): 404.46 +- 0.48; max 405.26
+  Decisao (pior caso) < 200 ms (RNF2): ATENDE
+  Ocupacao do processador em regime (98 quadros + CNN por segundo + LSTM a cada 10 s): 31.6 %
+Flash e RAM totais: ver a mensagem de compilacao do firmware principal.
+------------------------------------------------------------
