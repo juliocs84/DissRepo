@@ -1,0 +1,7 @@
+sessao,papel,janelas_audio,audio_descartadas,audio_nivel0,audio_nivel1,audio_nivel2,audio_nivel3,janelas_lstm,lstm_classe0,lstm_classe1,lstm_classe2,lstm_classe3,decisoes,decisao_Normal,decisao_Atenção,decisao_Crítico,decisao_Falha,referencia_termica
+SIM001,treino,86400,0,86400,0,0,0,8611,8611,0,0,0,8611,8611,0,0,0,True
+SIM002,treino,22200,1440,15900,1620,1620,1620,2142,1774,222,88,58,1998,1300,309,192,197,True
+SIM003,treino,22200,1440,15900,1620,1620,1620,2142,1696,282,119,45,1998,1232,363,204,199,True
+SIM004,treino,22200,1440,15900,1620,1620,1620,2142,1738,266,91,47,1998,1273,343,189,193,True
+SIM005,validacao,22200,1440,15900,1620,1620,1620,2142,1699,273,114,56,1998,1235,353,201,209,True
+SIM006,teste,22200,1440,15900,1620,1620,1620,2142,1597,361,101,83,1998,1146,436,193,223,True

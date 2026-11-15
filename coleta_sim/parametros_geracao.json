@@ -1,0 +1,67 @@
+{
+ "semente": 2026,
+ "maquina": "id_00",
+ "maquinas_fundo": [
+  "id_02",
+  "id_04",
+  "id_06"
+ ],
+ "snr_nivel_db": {
+  "1": -6.0,
+  "2": 0.0,
+  "3": 6.0
+ },
+ "snr_fundo_db": -3.0,
+ "ganho_audio": 1.0,
+ "duracao_linha_base_h": 24.0,
+ "base_s": 600,
+ "falha_s": 600,
+ "recuperacao_s": 600,
+ "base_ao_ligar_fundo_s": 600,
+ "carga_repouso_min": [
+  60,
+  60
+ ],
+ "carga_delta_c": 0.6,
+ "carga_tau_s": 600,
+ "alvo_termico_c": {
+  "1": [
+   28.5,
+   31.0
+  ],
+  "2": [
+   32.8,
+   34.5
+  ],
+  "3": [
+   36.0,
+   39.0
+  ]
+ },
+ "secador_tau_s": 150,
+ "resfriamento_tau_s": 200,
+ "obstrucao_delta_c": {
+  "1": 0.4,
+  "2": 0.8,
+  "3": 1.2
+ },
+ "obstrucao_tau_s": 300,
+ "bme_tau_s": 30,
+ "bme_offset_c": 0.2,
+ "termo_tau_s": 90,
+ "termo_ruido_c": 0.05,
+ "termo_resolucao_c": 0.1,
+ "pressao_alvo_hpa": 930.0,
+ "ruido_secador": false,
+ "snr_secador_db": -3.0,
+ "inicio_ficticio": "2026-01-05 08:00",
+ "papel": {
+  "SIM001": "treino",
+  "SIM002": "treino",
+  "SIM003": "treino",
+  "SIM004": "treino",
+  "SIM005": "validacao",
+  "SIM006": "teste"
+ },
+ "escala_tempo": 1.0
+}
