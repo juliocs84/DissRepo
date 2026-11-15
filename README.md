@@ -30,7 +30,7 @@ Os resultados de classificação são compatíveis com as hipóteses **nas condi
 ## Estrutura do repositório
 
 ```
-firmware/
+firmware_v5/
   Coleta_InSitu/                     firmware de coleta (áudio 16 kHz + BME280 no microSD)
   Multimodais-de-Monitorizacao_v5/   firmware final (CNN int8 de 4 níveis, LSTM float32 em C, fusão densa)
   Teste_Inferencia_v5/               paridade com o Python, arena e latência (Apêndice D)
