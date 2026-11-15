@@ -1,0 +1,13 @@
+CNN v3 (passo 2) + LSTM em C - ordem de uso
+
+1. Colab (GPU T4): rode colab/03_treino_cnn_v3.ipynb (1 a 2 h). Saídas em modelos/cnn_v3/.
+   Envie as tabelas das células 3 (5 sementes), 6 (float32 x int8), 7 (v2 x v3) e 8 (máquina nova).
+2. Colab: rode colab/05_exportar_firmware.ipynb (já aponta para cnn_v3). Gera 7 arquivos .h em
+   dissertacao_tinyml/firmware/ (agora inclui pesos_lstm.h).
+3. Copie para as pastas dos sketches:
+     Teste_Inferencia/              <- os 4 .h desta entrega + os 7 .h do notebook 05
+     Multimodais-de-Monitorizacao/  <- os 4 .h desta entrega + os .h do notebook 05, exceto vetores_teste.h
+                                       e modelo_lstm.h (não é mais usado); mantenha o secrets.h
+4. Arduino IDE: Harvard_TinyMLx (TFLM_CHIRALE 0). Grave Teste_Inferencia, abra o Monitor Serial (115200),
+   envie Enter e copie o bloco "RESUMO COMPLETO".
+5. Ajuste ARENA_CNN_BYTES (arena usada + ~2 KB) no firmware principal, compile e anote Flash e RAM.
