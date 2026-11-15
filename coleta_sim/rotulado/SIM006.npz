@@ -1,0 +1,21 @@
+Clique para ver as respostas
+a) 8.760 × (1 - 0,999) = 8,76 horas/ano (~525 min)
+
+b) 8,76 × R$ 50.000 = R$ 438.000/ano
+
+c) Máx downtime = 50.000 ÷ 50.000 = 1h/ano → 1 ÷ 8.760 = 0,0114% → SLA mínimo 99,9886% → na prática SLA 99,99% (52 min/ano)
+
+
+Por que a 9.4 muda mais do que os números
+
+O texto atual fala em margem de “cerca de 10 ms”, que é a distância entre a média e o limite. Com a série que tem máximo, a margem que importa é a do pior caso, de 0,4 ms. Isso deixa a limitação mais clara e responde à crítica do orientador: o atendimento ciclo a ciclo passa a estar demonstrado.
+
+Um cuidado
+
+A série de 17.588 ciclos também é uma medição sua, e tirá-la do texto é uma decisão legítima, porque ela não tem registro de máximo. 
+Se a banca perguntar, a resposta é: “foi mantida apenas a série com registro de latência por ciclo, que permite verificar o RNF2 em todas as decisões”. 
+Se preferir deixar isso escrito, acrescente na nota da Tabela 12:
+
+Os modelos foram ajustados com as sessões de treino, com seleção na sessão de validação (seção 3.3.2) e avaliados na sessão de teste (SIM006), que não participou do treino. 
+
+Multimodais-de-Monitorizacao_Validado_OK
