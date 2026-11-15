@@ -1,0 +1,6 @@
+﻿Abordagem;Acurácia;F1 macro;Recall Normal;Recall Atenção;Recall Crítico;Recall Falha
+Multimodal (fusão treinada);0,931;0,921;0,972;0,805;0,933;0,964
+Multimodal (fusão por regra);0,883;0,889;0,853;0,917;0,902;0,955
+Unimodal LSTM;0,781;0,615;0,983;0,725;0,269;0,296
+Unimodal CNN;0,710;0,673;0,868;0,339;0,674;0,655
+Regra de limiar térmico;0,761;0,584;0,989;0,631;0,218;0,318

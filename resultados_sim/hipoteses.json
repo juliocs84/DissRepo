@@ -1,0 +1,16 @@
+{
+ "H1_multimodal_f1": 0.921145576553805,
+ "H1_melhor_unimodal": "Unimodal CNN",
+ "H1_melhor_unimodal_f1": 0.6732457465903374,
+ "H1_atende": true,
+ "H2_acuracia": 0.9309309309309309,
+ "H2_f1_macro": 0.921145576553805,
+ "H2_recall_falha": 0.9641255605381166,
+ "H2_atende_metricas": true,
+ "auc_macro": 0.9857523919442376,
+ "sessoes_teste": [
+  "SIM006"
+ ],
+ "decisoes": 1998,
+ "eventos": 12
+}

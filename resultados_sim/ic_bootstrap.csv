@@ -1,0 +1,4 @@
+comparacao,diferenca_f1_macro,ic95_inf,ic95_sup
+Multimodal (fusão treinada) − Unimodal CNN,0.2478998299634676,0.13070555735809997,0.45743980694989794
+Multimodal (fusão treinada) − Regra de limiar térmico,0.33676234519773407,0.19870712156171086,0.45965137392453753
+Multimodal (fusão treinada) − Multimodal (fusão por regra),0.03189972862781998,-0.01719270502200174,0.07859771623340699
