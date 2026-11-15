@@ -1,0 +1,259 @@
+{
+ "sessao": "SIM006",
+ "papeis": {
+  "teste": [
+   "SIM006"
+  ],
+  "treino": [
+   "SIM001",
+   "SIM002",
+   "SIM003",
+   "SIM004"
+  ],
+  "validacao": [
+   "SIM005"
+  ]
+ },
+ "parametros_geracao": {
+  "semente": 2026,
+  "maquina": "id_00",
+  "maquinas_fundo": [
+   "id_02",
+   "id_04",
+   "id_06"
+  ],
+  "snr_nivel_db": {
+   "1": -6.0,
+   "2": 0.0,
+   "3": 6.0
+  },
+  "snr_fundo_db": -3.0,
+  "ganho_audio": 1.0,
+  "duracao_linha_base_h": 24.0,
+  "base_s": 600,
+  "falha_s": 600,
+  "recuperacao_s": 600,
+  "base_ao_ligar_fundo_s": 600,
+  "carga_repouso_min": [
+   60,
+   60
+  ],
+  "carga_delta_c": 0.6,
+  "carga_tau_s": 600,
+  "alvo_termico_c": {
+   "1": [
+    28.5,
+    31.0
+   ],
+   "2": [
+    32.8,
+    34.5
+   ],
+   "3": [
+    36.0,
+    39.0
+   ]
+  },
+  "secador_tau_s": 150,
+  "resfriamento_tau_s": 200,
+  "obstrucao_delta_c": {
+   "1": 0.4,
+   "2": 0.8,
+   "3": 1.2
+  },
+  "obstrucao_tau_s": 300,
+  "bme_tau_s": 30,
+  "bme_offset_c": 0.2,
+  "termo_tau_s": 90,
+  "termo_ruido_c": 0.05,
+  "termo_resolucao_c": 0.1,
+  "pressao_alvo_hpa": 930.0,
+  "ruido_secador": false,
+  "snr_secador_db": -3.0,
+  "inicio_ficticio": "2026-01-05 08:00",
+  "papel": {
+   "SIM001": "treino",
+   "SIM002": "treino",
+   "SIM003": "treino",
+   "SIM004": "treino",
+   "SIM005": "validacao",
+   "SIM006": "teste"
+  },
+  "escala_tempo": 1.0
+ },
+ "semente_geracao": 2026,
+ "eventos": {
+  "n": 12,
+  "por_tipo_nivel": [
+   {
+    "tipo": "combinado",
+    "nivel": 1,
+    "n": 1
+   },
+   {
+    "tipo": "combinado",
+    "nivel": 2,
+    "n": 1
+   },
+   {
+    "tipo": "combinado",
+    "nivel": 3,
+    "n": 1
+   },
+   {
+    "tipo": "desbalanceamento",
+    "nivel": 1,
+    "n": 1
+   },
+   {
+    "tipo": "desbalanceamento",
+    "nivel": 2,
+    "n": 1
+   },
+   {
+    "tipo": "desbalanceamento",
+    "nivel": 3,
+    "n": 1
+   },
+   {
+    "tipo": "obstrucao",
+    "nivel": 1,
+    "n": 1
+   },
+   {
+    "tipo": "obstrucao",
+    "nivel": 2,
+    "n": 1
+   },
+   {
+    "tipo": "obstrucao",
+    "nivel": 3,
+    "n": 1
+   },
+   {
+    "tipo": "termico",
+    "nivel": 1,
+    "n": 1
+   },
+   {
+    "tipo": "termico",
+    "nivel": 2,
+    "n": 1
+   },
+   {
+    "tipo": "termico",
+    "nivel": 3,
+    "n": 1
+   }
+  ],
+  "com_fundo": 0
+ },
+ "decisoes": {
+  "n": 1998,
+  "por_classe": [
+   1146,
+   436,
+   193,
+   223
+  ],
+  "eventos_com_decisao": 12
+ },
+ "origem": "NÃO REGISTRADA — o 07b não gravou a lista de gravações/trechos usados por sessão",
+ "arquivos": 65,
+ "modelos": [
+  {
+   "arquivo": "modelos/sim/busca_hiperparametros.csv",
+   "sha256": "93f8f837b8dac9d389ae2bd19d1c83556fbcb05c2b8f92941715a4769da26926"
+  },
+  {
+   "arquivo": "modelos/sim/cnn_insitu.keras",
+   "sha256": "17a3e0ed113bae938422988ae4c0b9c28147e212cbc92dbfb37c7c8a5c7a1e3b"
+  },
+  {
+   "arquivo": "modelos/sim/cnn_insitu_int8.tflite",
+   "sha256": "69004fdd1461672f6e625f6f01da2b7dc4097f6e6907cd010b0aeb81a77105bd"
+  },
+  {
+   "arquivo": "modelos/sim/cnn_insitu_quantizacao.json",
+   "sha256": "98cfe8455c4c9b7954a88af9d746b4fb98ff6da2b31d6c2e6ca5adb39ee7e3dd"
+  },
+  {
+   "arquivo": "modelos/sim/curvas_insitu.png",
+   "sha256": "6100893fb858f3592a21b9a6187b5440c8f8491d93185fad51ba7e553ee33154"
+  },
+  {
+   "arquivo": "modelos/sim/diagnostico_dados.png",
+   "sha256": "015f42f348cbf2431e423c5038bd5d139d26bccce8d21202c5f75d0b76add2a3"
+  },
+  {
+   "arquivo": "modelos/sim/fusao.json",
+   "sha256": "a67adfd9417b6df8121f2c0b809857c14bde2370c2edb7fb964e6150edbd7ad0"
+  },
+  {
+   "arquivo": "modelos/sim/fusao.keras",
+   "sha256": "af39ced7287749b52bdde2014fbb38a7e3ef77c586519cde158d553cb9a1bcf5"
+  },
+  {
+   "arquivo": "modelos/sim/lstm_insitu.keras",
+   "sha256": "6c03d4b1846ac8cb8396af784294c7089b91c0bb7ff951fc58b3639d3aab59c8"
+  }
+ ],
+ "tabela13_reproduzida": [
+  {
+   "Abordagem": "Multimodal (fusão treinada)",
+   "Acurácia": 0.931,
+   "F1 macro": 0.921,
+   "Recall Normal": 0.972,
+   "Recall Atenção": 0.805,
+   "Recall Crítico": 0.933,
+   "Recall Falha": 0.964
+  },
+  {
+   "Abordagem": "Multimodal (fusão por regra)",
+   "Acurácia": 0.883,
+   "F1 macro": 0.889,
+   "Recall Normal": 0.853,
+   "Recall Atenção": 0.917,
+   "Recall Crítico": 0.902,
+   "Recall Falha": 0.955
+  },
+  {
+   "Abordagem": "Unimodal LSTM",
+   "Acurácia": 0.781,
+   "F1 macro": 0.615,
+   "Recall Normal": 0.983,
+   "Recall Atenção": 0.725,
+   "Recall Crítico": 0.269,
+   "Recall Falha": 0.296
+  },
+  {
+   "Abordagem": "Unimodal CNN",
+   "Acurácia": 0.71,
+   "F1 macro": 0.673,
+   "Recall Normal": 0.868,
+   "Recall Atenção": 0.339,
+   "Recall Crítico": 0.674,
+   "Recall Falha": 0.655
+  },
+  {
+   "Abordagem": "Regra de limiar térmico",
+   "Acurácia": 0.761,
+   "F1 macro": 0.584,
+   "Recall Normal": 0.989,
+   "Recall Atenção": 0.631,
+   "Recall Crítico": 0.218,
+   "Recall Falha": 0.318
+  }
+ ],
+ "ambiente": {
+  "python": "3.13.18",
+  "numpy": "2.4.6",
+  "pandas": "2.2.3",
+  "sklearn": "1.6.1",
+  "tensorflow": "2.21.0",
+  "plataforma": "Linux-6.6.159+-x86_64-with-glibc2.39"
+ },
+ "problemas": [
+  "origem dos trechos não registrada: acrescentar ao 07b o registro dos IDs (ver nota no fim)"
+ ]
+}

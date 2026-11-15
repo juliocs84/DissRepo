@@ -1,0 +1,13 @@
+sessao,evento,tipo,nivel,fundo,repeticao
+SIM006,1,termico,2,N,5
+SIM006,2,combinado,3,N,5
+SIM006,3,desbalanceamento,3,N,5
+SIM006,4,termico,1,N,5
+SIM006,5,obstrucao,1,N,5
+SIM006,6,combinado,2,N,5
+SIM006,7,desbalanceamento,1,S,5
+SIM006,8,combinado,1,S,5
+SIM006,9,obstrucao,3,S,5
+SIM006,10,desbalanceamento,2,S,5
+SIM006,11,obstrucao,2,S,5
+SIM006,12,termico,3,S,5

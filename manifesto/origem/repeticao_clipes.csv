@@ -1,0 +1,17 @@
+sessao,banco,usos,clipes_distintos,usos_por_clipe
+SIM001,treino/normal,8784,708,12.4
+SIM002,treino/anomalo,549,285,1.9
+SIM002,treino/fundo,1342,1342,1.0
+SIM002,treino/normal,2257,708,3.2
+SIM003,treino/anomalo,549,285,1.9
+SIM003,treino/fundo,1525,1243,1.2
+SIM003,treino/normal,2257,708,3.2
+SIM004,treino/anomalo,549,285,1.9
+SIM004,treino/fundo,1525,1460,1.0
+SIM004,treino/normal,2257,708,3.2
+SIM005,validacao/anomalo,549,61,9.0
+SIM005,validacao/fundo,1342,459,2.9
+SIM005,validacao/normal,2257,152,14.8
+SIM006,teste/anomalo,549,61,9.0
+SIM006,teste/fundo,1159,461,2.5
+SIM006,teste/normal,2257,151,14.9

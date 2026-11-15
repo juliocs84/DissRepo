@@ -1,0 +1,37 @@
+{
+  "semente": 2,
+  "unidades": 32,
+  "n_passos": 30,
+  "quantizacao": {
+    "x": [
+      0.00343911862000823,
+      -128
+    ],
+    "h_ent": [
+      0.005481901578605175,
+      22
+    ],
+    "c_ent": [
+      0.17507393658161163,
+      -6
+    ],
+    "h_sai": [
+      0.005645405035465956,
+      18
+    ],
+    "c_sai": [
+      0.1807021200656891,
+      -6
+    ],
+    "prob": [
+      0.00390625,
+      -128
+    ]
+  },
+  "ordem_saidas": [
+    "h_novo",
+    "c_novo",
+    "probabilidades"
+  ],
+  "uso": "zerar h e c no início de cada janela; executar 30 passos; ler probabilidades no último"
+}
